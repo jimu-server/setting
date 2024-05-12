@@ -1,0 +1,11 @@
+{
+  "id": "",
+  "name": "Ollama",
+  "pid": "",
+  "value": "OllamaSetting",
+  "toolId": "2",
+  "setting": {
+    "host": "",
+    "ollama_model": ""
+  }
+}
