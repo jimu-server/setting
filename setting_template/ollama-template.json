@@ -5,7 +5,7 @@
   "value": "OllamaSetting",
   "toolId": "2",
   "setting": {
-    "host": "",
-    "ollama_model": ""
+    "host": "http://localhost:11434",
+    "ollamaModel": ""
   }
 }

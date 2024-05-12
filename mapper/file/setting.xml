@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mapper namespace="SettingMapper">
+    <select id="SettingsList">
+        select *
+        from app_setting
+        where user_id = {UserId}
+    </select>
+
+    <!--  用户设置 默认 id=1 系统用户公用  -->
+    <select id="GetUserInfoSetting">
+        select *
+        from app_setting
+        where id = '1'
+    </select>
+
+    <update id="UpdateSetting">
+        update app_setting
+        set setting={setting}
+        where id = {Id}
+          and user_id = {UserId}
+    </update>
+    <insert id="AddSetting">
+        insert into app_setting(id, pid, user_id, name, value, tool_id)
+        VALUES
+        <for slice="{list}" item="obj" separator=",">
+            ({obj.Id},{obj.Pid},{obj.UserId},{obj.Name},{obj.Value},{obj.ToolId})
+        </for>
+    </insert>
+
+</mapper>
