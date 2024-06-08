@@ -113,7 +113,7 @@ func UpdateUserSetting(id string, value any) error {
 
 func reload(id string) (string, error) {
 	var err error
-	var app_set string
+	var app_set string = `[]`
 	// 未查询到数据 重新加载数据库
 	param := map[string]any{
 		"UserId": id,
@@ -122,6 +122,9 @@ func reload(id string) (string, error) {
 	var set []*model.AppSetting
 	if set, err = settingMapper.SettingsList(param); err != nil {
 		logger.Logger.Error(err.Error())
+		return app_set, err
+	}
+	if set == nil {
 		return app_set, err
 	}
 	// 添加系统默认的 用户个人设置项
